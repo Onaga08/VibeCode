@@ -69,6 +69,7 @@ npm run test
 ## ❤️ Credits & Inspiration
 
 Big shoutout to:
+- [exbraiin/FunnyCode](https://github.com/exbraiin/FunnyCode) the original author of the base code I built on
 - [jotson/ridiculous_coding](https://github.com/jotson/ridiculous_coding) for the chaotic genius
 - The original [Power Mode](https://marketplace.visualstudio.com/items?itemName=hoovercj.vscode-power-mode) extension
 - And coffee ☕, because without it, none of this would exist.
@@ -84,5 +85,3 @@ Turn it on. Feel the vibe. Ship that feature.
 
 🕺 **Stay vibin'. Stay codin'.**
 ```
-
-Let me know if you want to auto-generate a `.vsix`, add badges, link to GitHub releases, or embed your own gif/image.
