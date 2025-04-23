@@ -20,9 +20,6 @@ VibeCode is your personal aesthetic enhancer. Every keystroke triggers a wave of
 - 🎨 **Keyword Highlights**  
   When you type a keyword like `function` or `await`, it pops with bold color and style. Instant dopamine hit.
 
-- 🖤 **Grayscale Mode**  
-  Too many colors making your soul anxious? Turn on grayscale mode and code like it’s the 1940s.
-
 ---
 
 ## 🔧 Extension Settings
@@ -30,23 +27,14 @@ VibeCode is your personal aesthetic enhancer. Every keystroke triggers a wave of
 VibeCode comes with a few toggles you can control in your VS Code settings:
 
 ```json
-"vibecode.enabled": true,          // Turn the extension on/off
-"vibecode.cursor": true,           // Show animated cursor effects
-"vibecode.grayscale": false        // Enable grayscale animation mode
+"vibecode.on": true // Turn the extension on/off
 ```
-
-You can also toggle features via the command palette:
-- ✅ "Toggle VibeCode"
-- ✅ "Toggle Cursor Effect"
-- ✅ "Toggle Grayscale Mode"
-
----
 
 ## 📸 Example
 
 Here’s a preview of what it looks like when you’re vibin' and codin':
 
-![preview gif](/images/example.gif)  
+![preview gif](/asset/example.gif)  
 _Actual footage of me pretending I’m hacking in a sci-fi movie._
 
 ---
@@ -54,7 +42,7 @@ _Actual footage of me pretending I’m hacking in a sci-fi movie._
 ## 🛠️ Installation
 
 1. **Marketplace (Recommended)**  
-   Visit the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=YourName.vibecode) and hit Install.
+   Visit the [VS Code Marketplace]() and hit Install.
 
 2. **Install Manually (VSIX)**  
    - Download the latest `.vsix` from [Releases](./releases)
