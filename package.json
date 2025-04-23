@@ -3,7 +3,7 @@
   "displayName": "VibeCode",
   "description": "Spice up your VSCode typing with cool text pop animations and typewriter sounds!",
   "publisher": "ExBrain",
-  "icon": "images/icon.jpg",
+  "icon": "asset/icon.png",
   "version": "1.0.0",
   "repository": {
     "type": "git",
