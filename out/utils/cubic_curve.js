@@ -28,10 +28,11 @@ class CubicCurve {
     transformInternal(t) {
         let start = 0.0;
         let end = 1.0;
+        // eslint-disable-next-line no-constant-condition
         while (true) {
-            let midpoint = (start + end) / 2;
-            let estimate = this.evaluateCubic(this.a, this.c, midpoint);
-            let abs = Math.abs(t - estimate);
+            const midpoint = (start + end) / 2;
+            const estimate = this.evaluateCubic(this.a, this.c, midpoint);
+            const abs = Math.abs(t - estimate);
             if (abs < this._cubicErrorBound) {
                 return this.evaluateCubic(this.b, this.d, midpoint);
             }

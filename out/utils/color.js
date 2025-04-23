@@ -15,9 +15,9 @@ class ColorUtils {
         return new vscode_1.Color(1 - color.red, 1 - color.green, 1 - color.blue, color.alpha);
     }
     static saturated(color) {
-        var r = color.red;
-        var g = color.green;
-        var b = color.blue;
+        let r = color.red;
+        let g = color.green;
+        let b = color.blue;
         if (r < g && r < b) {
             r = 0;
             if (g > b)

@@ -7,9 +7,9 @@
 	  "rootDir": "src",
 	  "strict": true,
 	  "esModuleInterop": true,
-	  "moduleResolution": "Node16",
-	  "sourceMap": true
+	  "sourceMap": true,
+	  "skipLibCheck": true
 	},
-	"exclude": ["node_modules", ".vscode-test", "out", "test"]
+	"exclude": ["node_modules", ".vscode-test", "out"]
   }
   
