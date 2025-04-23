@@ -26,44 +26,40 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Configs = void 0;
 const vscode = __importStar(require("vscode"));
 class Configs {
-    static enabledCursor = false;
     static enabledExtension = false;
-    static enabledGrayscale = false;
-    static get isCursorEnabled() { return this.enabledCursor; }
-    static get isExtensionEnabled() { return this.enabledExtension; }
-    static get isGrayscaleEnabled() { return this.enabledGrayscale; }
+    static get isExtensionEnabled() {
+        return this.enabledExtension;
+    }
     constructor() { }
     static activate(context) {
-        const extName = 'funnycode';
-        const configs = new Map([
-            ['enabled', (v) => Configs.enabledExtension = v],
-            ['cursor', (v) => Configs.enabledCursor = v],
-            ['grayscale', (v) => Configs.enabledGrayscale = v],
-        ]);
-        function isConfigEnabled(config) {
+        const extName = 'vibecode';
+        const configKey = 'on';
+        function isConfigEnabled() {
             const cfg = vscode.workspace.getConfiguration(extName);
-            const inspect = cfg.inspect(config);
+            const inspect = cfg.inspect(configKey);
             return !!(inspect?.globalValue ?? inspect?.defaultValue ?? false);
         }
         function toggleExtensionEnabled() {
-            const configName = 'enabled';
-            const value = isConfigEnabled(configName);
             const config = vscode.workspace.getConfiguration(extName);
-            config.update(configName, !value, vscode.ConfigurationTarget.Global);
+            const current = isConfigEnabled();
+            const newValue = !current;
+            config.update(configKey, newValue, vscode.ConfigurationTarget.Global).then(() => {
+                const message = `VibeCode is now ${newValue ? 'ON' : 'OFF'}`;
+                vscode.window.showInformationMessage(message);
+            });
         }
         function onConfigChanged(event) {
-            for (const [name, setter] of configs) {
-                if (event.affectsConfiguration(`${extName}.${name}`)) {
-                    setter(isConfigEnabled(name));
-                }
+            if (event.affectsConfiguration(`${extName}.${configKey}`)) {
+                Configs.enabledExtension = isConfigEnabled();
             }
         }
-        for (const [name, setter] of configs) {
-            setter(isConfigEnabled(name));
-        }
-        const toggleCommandId = 'funnycode.toggleEnable';
-        const toogleCommand = vscode.commands.registerCommand(toggleCommandId, toggleExtensionEnabled);
-        context.subscriptions.push(toogleCommand);
+        // Set initial value
+        Configs.enabledExtension = isConfigEnabled();
+        // Register toggle command
+        const toggleCommandId = 'vibecode.toggleOn';
+        const toggleCommand = vscode.commands.registerCommand(toggleCommandId, toggleExtensionEnabled);
+        context.subscriptions.push(toggleCommand);
+        // Listen for config changes
         const configSub = vscode.workspace.onDidChangeConfiguration(onConfigChanged);
         context.subscriptions.push(configSub);
     }

@@ -1,53 +1,50 @@
 import * as vscode from 'vscode';
 
 export class Configs {
-    private static enabledCursor: boolean = false;
     private static enabledExtension: boolean = false;
-    private static enabledGrayscale: boolean = false;
 
-    public static get isCursorEnabled(): boolean { return this.enabledCursor; }
-    public static get isExtensionEnabled(): boolean { return this.enabledExtension; }
-    public static get isGrayscaleEnabled(): boolean { return this.enabledGrayscale; }
+    public static get isExtensionEnabled(): boolean {
+        return this.enabledExtension;
+    }
 
-    private constructor() { }
+    private constructor() {}
 
     public static activate(context: vscode.ExtensionContext) {
-        const extName = 'funnycode';
-        const configs = new Map<string, (v: boolean) => void>([
-            ['enabled', (v: boolean) => Configs.enabledExtension = v],
-            ['cursor', (v: boolean) => Configs.enabledCursor = v],
-            ['grayscale', (v: boolean) => Configs.enabledGrayscale = v],
-        ]);
+        const extName = 'vibecode';
+        const configKey = 'on';
 
-        function isConfigEnabled(config: string): boolean {
+        function isConfigEnabled(): boolean {
             const cfg = vscode.workspace.getConfiguration(extName);
-            const inspect = cfg.inspect(config);
+            const inspect = cfg.inspect(configKey);
             return !!(inspect?.globalValue ?? inspect?.defaultValue ?? false);
         }
 
         function toggleExtensionEnabled() {
-            const configName = 'enabled';
-            const value = isConfigEnabled(configName);
             const config = vscode.workspace.getConfiguration(extName);
-            config.update(configName, !value, vscode.ConfigurationTarget.Global);
+            const current = isConfigEnabled();
+            const newValue = !current;
+
+            config.update(configKey, newValue, vscode.ConfigurationTarget.Global).then(() => {
+                const message = `VibeCode is now ${newValue ? 'ON' : 'OFF'}`;
+                vscode.window.showInformationMessage(message);
+            });
         }
 
         function onConfigChanged(event: vscode.ConfigurationChangeEvent) {
-            for (const [name, setter] of configs) {
-                if (event.affectsConfiguration(`${extName}.${name}`)) {
-                    setter(isConfigEnabled(name));
-                }
+            if (event.affectsConfiguration(`${extName}.${configKey}`)) {
+                Configs.enabledExtension = isConfigEnabled();
             }
         }
 
-        for (const [name, setter] of configs) {
-            setter(isConfigEnabled(name));
-        }
+        // Set initial value
+        Configs.enabledExtension = isConfigEnabled();
 
-        const toggleCommandId = 'funnycode.toggleEnable';
-        const toogleCommand = vscode.commands.registerCommand(toggleCommandId, toggleExtensionEnabled);
-        context.subscriptions.push(toogleCommand);
+        // Register toggle command
+        const toggleCommandId = 'vibecode.toggleOn';
+        const toggleCommand = vscode.commands.registerCommand(toggleCommandId, toggleExtensionEnabled);
+        context.subscriptions.push(toggleCommand);
 
+        // Listen for config changes
         const configSub = vscode.workspace.onDidChangeConfiguration(onConfigChanged);
         context.subscriptions.push(configSub);
     }

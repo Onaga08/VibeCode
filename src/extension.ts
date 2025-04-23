@@ -75,7 +75,7 @@ function onTextChanged(e: vscode.TextDocumentChangeEvent): void {
     const over = text === '' ? 0 : 1;
     const pos = new vscode.Position(cursor.line, cursor.character + over);
     decorations.push(new CharDecor(editor, pos, data));
-    if (Configs.isCursorEnabled) decorations.push(new CursorDecor(editor, pos));
+    // if (Configs.isCursorEnabled) decorations.push(new CursorDecor(editor, pos));
 
     startTimeout();
 
@@ -146,15 +146,11 @@ class CharDecor implements AnimatedDecor {
 			this.moveDirY = Math.abs(this.moveDirY);
 		}
 
-        if (Configs.isGrayscaleEnabled) {
-            const rColor = ColorUtils.randomGrayscale();
-            this.textColor = ColorUtils.toHexCode(rColor);
-            this.shadowColor = ColorUtils.toHexCode(rColor);
-        } else {
-            const rColor = ColorUtils.saturated(ColorUtils.random());
-            this.textColor = ColorUtils.toHexCode(ColorUtils.desaturated(rColor, 0.6));
-            this.shadowColor = ColorUtils.toHexCode(rColor);
-        }
+
+        const rColor = ColorUtils.saturated(ColorUtils.random());
+        this.textColor = ColorUtils.toHexCode(ColorUtils.desaturated(rColor, 0.6));
+        this.shadowColor = ColorUtils.toHexCode(rColor);
+        
 
         this.strokeColor = 'white';
 		this.yShift = isNearTop ? 20 : 0;

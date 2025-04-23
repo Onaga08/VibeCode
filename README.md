@@ -1,35 +1,100 @@
-# FunnyCode
+# 🎧 VibeCode
 
-This is my first vscode extension aside from my custom theme.
+Welcome to the chillest way to write code inside VS Code.
 
-This is a custom animation based on "Power Mode" extension.<br>
-The visual of this extension was heavily inspired by jotson [Ridiculous Coding](https://github.com/jotson/ridiculous_coding). But I had to reduce the amount of effects a bit.
+VibeCode is your personal aesthetic enhancer. Every keystroke triggers a wave of ✨ animations, bold color pops, and old-school **typewriter sounds** — because who says coding can’t be dramatic?
 
-## Example
+---
 
-Here is a little example of how it looks when you write your code in the editor.
+## 🚀 Features
 
-![example](/images/example.gif)
+- 💥 **Boom! Pow! Typing animations**  
+  Each keystroke spawns a funky floating character. It bounces, spins, and vanishes like a mic drop.
 
-## Known Issues
+- 🔊 **Typewriter Sound FX**  
+  Miss the sound of actual keys clacking? We gotchu. VibeCode plays a classic typewriter "click" every time you type.
 
-When you write to close to the bounds of the editor panel, the animation is out of bounds, so you won't see it. <br> _However in most cases you'll be writing your code in the middle of the editor, so I didn't care much about fixing it._
+- 🎯 **Cursor target marker**  
+  A bold visual marker that follows your cursor around like a laser sight in a spy movie. Optional, of course.
 
-## Extension Settings
+- 🎨 **Keyword Highlights**  
+  When you type a keyword like `function` or `await`, it pops with bold color and style. Instant dopamine hit.
 
-`funnycode.enabled` can be set to `true` or `false` in order to enable or disable this extension on demand. <br> _A command can also be executed in order to change this setting. Search for "Toggle Funny Code" and it will toggle the setting on or off._
+- 🖤 **Grayscale Mode**  
+  Too many colors making your soul anxious? Turn on grayscale mode and code like it’s the 1940s.
 
-`funnycode.cursor` can be set to `true` or `false` in order to enable or disable the cursor decoration. <br> _The cursor is a "target" marker spawned at the cursor position._
+---
 
-`funnycode.grayscale` can be set to `true` or `false` in order to enable or disable the grayscale mode. <br> _Grayscale mode replaces the random color or each character with a grayscale color._
+## 🔧 Extension Settings
 
-## How to install
+VibeCode comes with a few toggles you can control in your VS Code settings:
 
-1. You can download a [VSIX Release](releases/) file and install it through the extensions panel. <br> Press the options button ("...") and click "Install from VSIX".
+```json
+"vibecode.enabled": true,          // Turn the extension on/off
+"vibecode.cursor": true,           // Show animated cursor effects
+"vibecode.grayscale": false        // Enable grayscale animation mode
+```
 
-2. You can also check the [Marketplace](https://marketplace.visualstudio.com/items?itemName=ExBrain.funnycode) for this extension
+You can also toggle features via the command palette:
+- ✅ "Toggle VibeCode"
+- ✅ "Toggle Cursor Effect"
+- ✅ "Toggle Grayscale Mode"
 
-## Other
+---
 
-I hope you have fun with this extension.<br>
-You can also download and modify it yourself if you want to.
+## 📸 Example
+
+Here’s a preview of what it looks like when you’re vibin' and codin':
+
+![preview gif](/images/example.gif)  
+_Actual footage of me pretending I’m hacking in a sci-fi movie._
+
+---
+
+## 🛠️ Installation
+
+1. **Marketplace (Recommended)**  
+   Visit the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=YourName.vibecode) and hit Install.
+
+2. **Install Manually (VSIX)**  
+   - Download the latest `.vsix` from [Releases](./releases)
+   - Open VS Code Extensions panel
+   - Click `...` menu → **Install from VSIX**
+
+---
+
+## 🧪 Tests
+
+VibeCode comes with a couple of built-in sanity tests:
+
+- ✅ `extension.test.js`: tests sound file path resolution.
+- ✅ `keyword.test.js`: tests sample keyword highlight behavior.
+
+Run with:
+
+```bash
+npm run test
+```
+
+---
+
+## ❤️ Credits & Inspiration
+
+Big shoutout to:
+- [jotson/ridiculous_coding](https://github.com/jotson/ridiculous_coding) for the chaotic genius
+- The original [Power Mode](https://marketplace.visualstudio.com/items?itemName=hoovercj.vscode-power-mode) extension
+- And coffee ☕, because without it, none of this would exist.
+
+---
+
+## ✌️ Final Words
+
+If you code best with ✨ sparkles, 💥 booms, and nostalgic 🧠 clicks — VibeCode was made for you.  
+Turn it on. Feel the vibe. Ship that feature.
+
+---
+
+🕺 **Stay vibin'. Stay codin'.**
+```
+
+Let me know if you want to auto-generate a `.vsix`, add badges, link to GitHub releases, or embed your own gif/image.

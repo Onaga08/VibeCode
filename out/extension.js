@@ -103,8 +103,7 @@ function onTextChanged(e) {
     const over = text === '' ? 0 : 1;
     const pos = new vscode.Position(cursor.line, cursor.character + over);
     decorations.push(new CharDecor(editor, pos, data));
-    if (configs_1.Configs.isCursorEnabled)
-        decorations.push(new CursorDecor(editor, pos));
+    // if (Configs.isCursorEnabled) decorations.push(new CursorDecor(editor, pos));
     startTimeout();
     const lineText = editor.document.lineAt(cursor.line).text;
     const words = lineText.slice(0, cursor.character).trim().split(/\s+/);
@@ -163,16 +162,9 @@ class CharDecor {
             this.offy = Math.abs(this.offy); // move down instead of up
             this.moveDirY = Math.abs(this.moveDirY);
         }
-        if (configs_1.Configs.isGrayscaleEnabled) {
-            const rColor = color_1.ColorUtils.randomGrayscale();
-            this.textColor = color_1.ColorUtils.toHexCode(rColor);
-            this.shadowColor = color_1.ColorUtils.toHexCode(rColor);
-        }
-        else {
-            const rColor = color_1.ColorUtils.saturated(color_1.ColorUtils.random());
-            this.textColor = color_1.ColorUtils.toHexCode(color_1.ColorUtils.desaturated(rColor, 0.6));
-            this.shadowColor = color_1.ColorUtils.toHexCode(rColor);
-        }
+        const rColor = color_1.ColorUtils.saturated(color_1.ColorUtils.random());
+        this.textColor = color_1.ColorUtils.toHexCode(color_1.ColorUtils.desaturated(rColor, 0.6));
+        this.shadowColor = color_1.ColorUtils.toHexCode(rColor);
         this.strokeColor = 'white';
         this.yShift = isNearTop ? 20 : 0;
         this.ranges = [new vscode.Range(pos, pos)];
