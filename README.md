@@ -56,7 +56,7 @@ _Actual footage of me pretending I’m hacking in a sci-fi movie._
 VibeCode comes with a couple of built-in sanity tests:
 
 - ✅ `extension.test.js`: tests sound file path resolution.
-- ✅ `keyword.test.js`: tests sample keyword highlight behavior.
+- ✅ building more tests soon...
 
 Run with:
 
@@ -84,4 +84,3 @@ Turn it on. Feel the vibe. Ship that feature.
 ---
 
 🕺 **Stay vibin'. Stay codin'.**
-```
