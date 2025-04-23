@@ -17,9 +17,9 @@ export class ColorUtils {
     }
 
     static saturated(color: Color): Color {
-        var r = color.red;
-        var g = color.green;
-        var b = color.blue;
+        let r = color.red;
+        let g = color.green;
+        let b = color.blue;
         if (r < g && r < b) {
             r = 0;
             if (g > b) g = 1;

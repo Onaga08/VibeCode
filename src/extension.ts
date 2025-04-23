@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { Configs } from './configs';
 import { ColorUtils } from './utils/color';
 import { CubicCurve } from './utils/cubic_curve';
+import { spawn } from 'child_process';
 
 let extensionContext: vscode.ExtensionContext;
 let timeout: NodeJS.Timeout | null;
@@ -53,7 +54,7 @@ function textToRender(text: string, editor: vscode.TextEditor) {
 
 function playTypingSound() {
     const soundPath = extensionContext.asAbsolutePath('sounds/typewriter.wav');
-    require('child_process').spawn('afplay', [soundPath]); // macOS
+	spawn('afplay', [soundPath]); // macOS
 }
 
 function onTextChanged(e: vscode.TextDocumentChangeEvent): void {
