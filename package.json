@@ -2,12 +2,12 @@
   "name": "vibecode",
   "displayName": "VibeCode",
   "description": "Spice up your VSCode typing with cool text pop animations and typewriter sounds!",
-  "publisher": "ExBrain",
+  "publisher": "Onaga08",
   "icon": "asset/icon.png",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/exbraiin/VibeCode"
+    "url": "https://github.com/Onaga08/VibeCode"
   },
   "engines": {
     "vscode": "^1.84.0"
